@@ -5,6 +5,15 @@ html {
     font-size: 62.5%;
 }
 
+body {
+    font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+
+h3 {
+    font-family: "DotGothic16", sans-serif;
+    font-weight: 400;
+}
+
 li {
     list-style: none;
 }
@@ -21,6 +30,7 @@ img {
 
 main {
     margin-left: 30rem;
+    margin-right: 2rem;
     padding-left: 3.2rem;
 }
 
@@ -28,7 +38,7 @@ main {
 header {
     width: 30rem;
     height: 100vh;
-    padding: 15rem 8rem 0 2rem;
+    padding: 10rem 8rem 0 2rem;
     position: fixed;
     top: 0;
     overflow-y: auto;
@@ -39,15 +49,15 @@ header {
 }
 
 .nav-link {
-margin-bottom: 40px;
+margin-bottom: 4rem;
 margin-inline: auto;
 }
 
 .link-btn {
     display: block;
-    height: 2.4rem;
+    height: 3rem;
     padding-bottom: 5px;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     transition: 0.5s;
     position: relative;
     overflow: hidden;
@@ -129,14 +139,16 @@ margin-inline: auto;
 
 .title {
     color: #573F3F;
-    font-size: 4rem;
 }
 
 .en {
     color: #F2880F;
+    font-size: 2.4rem;
+    margin-top: 3.2rem;
 }
 
 .ja {
+    font-size: 2.8rem;
     border-bottom: 0.3rem dashed #573F3F;
 }
 
