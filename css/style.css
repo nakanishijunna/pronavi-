@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+/* 共通パーツ */
+html {
+    font-size: 62.5%;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+main {
+    margin-left: 30rem;
+    padding-left: 3.2rem;
+}
+
+/* ナビケーション */
+header {
+    width: 30rem;
+    height: 100vh;
+    padding: 15rem 8rem 0 2rem;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+}
+
+.sidebar {
+    text-align: center;
+}
+
+.nav-link {
+margin-bottom: 40px;
+margin-inline: auto;
+}
+
+.link-btn {
+    display: block;
+    height: 2.4rem;
+    padding-bottom: 5px;
+    font-size: 1.6rem;
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-text {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    transform: translateX(-20%);
+    text-align: center;
+    color: #F2880F;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* 初期表示 */
+.btn-text.default {
+    color: #333;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-text.hover {
+    opacity: 0;
+    transform: translateY(2rem); /*下に隠す*/
+}
+
+/* ホバー時 */
+.link-btn:hover .default {
+    opacity: 0;
+    transform: translateY(-2rem); /*上に消える*/
+}
+
+.link-btn:hover .hover {
+    opacity: 1;
+    transform: translateY(0); /*下から出てくる*/
+}
+
+.cta-btn {
+    width: 100%;
+    height: 100%;
+    padding-block: 10px;
+    font-size: 1.8rem;
+    border-radius: 8px;
+    position: relative;
+    z-index: 0;
+}
+
+.cta-btn::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    background: linear-gradient(90deg,#EAFF01 0%, #8BE551 50%, #10C3B8 100%);
+}
+
+.cta-btn::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg,#EAFF01 60%, #9DFF6DDE , #40FFF3B2 ) ;
+}
+
+.cta-btn:hover::before{
+    opacity: 0;
+}
+
+/* 見出し */
+
+.title {
+    color: #573F3F;
+    font-size: 4rem;
+}
+
+.en {
+    color: #F2880F;
+}
+
+.ja {
+    border-bottom: 0.3rem dashed #573F3F;
+}
+
