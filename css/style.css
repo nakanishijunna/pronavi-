@@ -6,7 +6,8 @@ html {
 }
 
 body {
-    font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    background-color: #FAF8F1;
 }
 
 h3 {
@@ -49,8 +50,8 @@ header {
 }
 
 .nav-link {
-margin-bottom: 4rem;
-margin-inline: auto;
+    margin-bottom: 4rem;
+    margin-inline: auto;
 }
 
 .link-btn {
@@ -82,18 +83,21 @@ margin-inline: auto;
 
 .btn-text.hover {
     opacity: 0;
-    transform: translateY(2rem); /*下に隠す*/
+    transform: translateY(2rem);
+    /*下に隠す*/
 }
 
 /* ホバー時 */
 .link-btn:hover .default {
     opacity: 0;
-    transform: translateY(-2rem); /*上に消える*/
+    transform: translateY(-2rem);
+    /*上に消える*/
 }
 
 .link-btn:hover .hover {
     opacity: 1;
-    transform: translateY(0); /*下から出てくる*/
+    transform: translateY(0);
+    /*下から出てくる*/
 }
 
 .cta-btn {
@@ -116,7 +120,7 @@ margin-inline: auto;
     top: 0;
     left: 0;
     transition: 0.5s;
-    background: linear-gradient(90deg,#EAFF01 0%, #8BE551 50%, #10C3B8 100%);
+    background: linear-gradient(90deg, #EAFF01 0%, #8BE551 50%, #10C3B8 100%);
 }
 
 .cta-btn::after {
@@ -128,10 +132,10 @@ margin-inline: auto;
     z-index: -2;
     top: 0;
     left: 0;
-    background: linear-gradient(90deg,#EAFF01 60%, #9DFF6DDE , #40FFF3B2 ) ;
+    background: linear-gradient(90deg, #EAFF01 60%, #9DFF6DDE, #40FFF3B2);
 }
 
-.cta-btn:hover::before{
+.cta-btn:hover::before {
     opacity: 0;
 }
 
@@ -152,3 +156,345 @@ margin-inline: auto;
     border-bottom: 0.3rem dashed #573F3F;
 }
 
+/* 
+    かおり担当
+    つながる場所 共通
+                     */
+
+.scroll-section {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.scroll-list {
+    display: flex;
+    width: max-content;
+    gap: 2.5rem;
+    margin-block: 7rem;
+}
+
+.scroll-list li {
+    border: solid 1px #ABDAD1;
+    border-radius: 1rem;
+    width: 48rem;
+    height: 50rem;
+    background-color: #fff;
+    /* モダンブラウザ向け：8桁の16進数 */
+    box-shadow: 1rem 1rem 0.4rem #00000026;
+    /* 念のためIE11向け：rgba */
+    box-shadow: 1rem 1rem 0.4rem rgba(0, 0, 0, 0.15);
+    padding-top: 4rem;
+    padding-inline: 5rem;
+}
+
+.scroll-list span {
+    font-size: 2.7rem;
+}
+
+.scroll-list p {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-block: 1.5rem;
+}
+
+h3 {
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: normal;
+    border-bottom: solid 3px #ffbb00;
+    padding-bottom: 0.3rem;
+}
+
+h3 span {
+    color: #ffbb00;
+
+}
+
+/* 月曜日セミナー */
+
+.seminar {
+    position: relative;
+}
+
+.seminar-bg {
+    object-fit: cover;
+    width: 26.6rem;
+    height: 20.6rem;
+}
+
+.seminar-avatar {
+    position: absolute;
+    right: 6%;
+    bottom: 0;
+    height: 18rem;
+}
+
+.hand {
+    position: absolute;
+    bottom: 35%;
+    right: 9%;
+    transform-origin: bottom center;
+    animation: hand 2s infinite ease-in-out;
+    height: 8rem;
+}
+
+@keyframes hand {
+    0% {
+        transform: rotate(9deg);
+    }
+
+    50% {
+        transform: rotate(18deg);
+    }
+
+    100% {
+        transform: rotate(9deg);
+    }
+}
+
+/* 目的別相談部屋 */
+
+.room {
+    position: relative;
+}
+
+.whitebord {
+    position: absolute;
+    width: 19.9rem;
+    left: 10rem;
+}
+
+.pinkavatar {
+    position: absolute;
+}
+
+.greenavatar-back {
+    position: absolute;
+    bottom: 4rem;
+    right: 11rem;
+    width: 10.5rem;
+}
+
+.talk {
+    position: absolute;
+    animation: fadeInOut 5s infinite ease-in-out;
+    width: 9.1rem;
+}
+
+.room-talk {
+    bottom: 14rem;
+    right: 7rem;
+}
+
+@keyframes fadeInOut {
+
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(-5px);
+        /* ふわっと浮く */
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-5px);
+        /* 表示されたまま */
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+
+/* 毎日オープン */
+
+.open {
+    position: relative;
+}
+
+.open-avatar {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28rem;
+}
+
+.sun {
+    position: absolute;
+    bottom: 20rem;
+    animation-name: fadeSun;
+}
+
+.moon {
+    position: absolute;
+    bottom: 5rem;
+    right: 4rem;
+    animation-name: fadeMoon;
+}
+
+.sun,
+.moon {
+    opacity: 0;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeSun {
+    0% {
+        opacity: 0.1;
+    }
+
+    5% {
+        opacity: 0.5;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    55% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeMoon {
+    5% {
+        opacity: 0.1;
+    }
+
+
+    55% {
+        opacity: 0.7;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+
+    95% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
+}
+
+
+/* 定期的にオンライン飲み会開催 */
+
+.online {
+    position: relative;
+}
+
+.onlineBg {
+    position: absolute;
+    right: 5rem;
+    border-radius: 2rem;
+}
+
+.glass-animation {
+    position: relative;
+}
+
+.cheers {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.apart-glass {
+    opacity: 0;
+    animation: apartGlass 2s infinite steps(1);
+    width: 12.3rem;
+}
+
+.close-glass {
+    animation: closeGlass 2s infinite steps(1);
+    opacity: 0;
+}
+
+@keyframes apartGlass {
+    0% {
+        opacity: 1;
+    }
+
+
+    49.9% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes closeGlass {
+    0% {
+        opacity: 0;
+    }
+
+    49.9% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* いつでも誰かとつながれる */
+
+.anytime {
+    position: relative;
+}
+
+.anytimeBg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.anytime-avatar {
+    position: absolute;
+    bottom: 5rem;
+    left: 5rem;
+}
+
+.side-avatar {
+    position: absolute;
+    bottom: 3rem;
+    right: 5rem;
+    width: 13.8rem;
+}
+
+.anytime-talk {
+    position: absolute;
+    bottom: 14rem;
+    right: 9rem;
+}
