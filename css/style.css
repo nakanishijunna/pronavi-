@@ -382,6 +382,94 @@ nav.show {
     opacity: 1;
 }
 
+
+/* じゅんな担当行動ステップ */
+/* step */
+.step-items {
+    max-width: 80rem;
+    padding-top: 3rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+}
+
+.step-item {
+    width: 53%;
+    height: 40rem;
+    margin: 0 auto;
+    padding: 4rem 5rem;
+    display: inline-block;    
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #10C3B8;
+    border-radius: 3rem;
+    box-shadow: 1rem 1rem 0.4rem 0 #d6d4ce;
+}
+
+.step-item + .step-item {
+    margin-top: -4.5rem;
+}
+
+.step-item:nth-child(odd) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.step-item:nth-child(even) {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.step-hearing {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+/* 立体数字 */
+.step-num {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #faeec6;
+    paint-order: stroke;
+    -webkit-text-stroke: 0.18rem #ABDAD1;
+    position: relative;
+}
+
+.step-num::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+
+.step-title {
+    padding-left: 0.8rem;
+}
+
+.step-item p {
+    font-size: 1.6rem;
+}
+
+.step-img {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.step-img img {
+    border-radius: 2rem;
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    object-position: top;
+=======
 /* 
     かおり担当
     つながる場所 共通
@@ -817,4 +905,4 @@ h3 span {
     to {
         transform: scaleX(1);
     }
-}
+
