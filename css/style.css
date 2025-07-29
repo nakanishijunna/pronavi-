@@ -399,7 +399,7 @@ nav.show {
     height: 40rem;
     margin: 0 auto;
     padding: 4rem 5rem;
-    display: inline-block;    
+    display: inline-block;
     position: relative;
     background-color: #fff;
     border: 1px solid #10C3B8;
@@ -407,7 +407,7 @@ nav.show {
     box-shadow: 1rem 1rem 0.4rem 0 #d6d4ce;
 }
 
-.step-item + .step-item {
+.step-item+.step-item {
     margin-top: -4.5rem;
 }
 
@@ -470,7 +470,9 @@ nav.show {
     object-fit: cover;
     object-position: top;
 }
+
 /* ======= */
+
 /* 
     かおり担当
     つながる場所 共通
@@ -920,3 +922,4 @@ h3 span {
     opacity: 1;
     transform: translateY(0);
 }
+
