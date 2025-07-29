@@ -57,3 +57,42 @@ questions.forEach(q => {
     }
   });
 });
+
+
+/*=================================================
+フェードイン
+===================================================*/
+window.addEventListener('scroll', () => {
+  const elements = document.querySelectorAll('.fadeIn');
+  const triggerBottom = window.innerHeight * 0.85;
+
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < triggerBottom) {
+      el.classList.add('is-active');
+    }
+  });
+});
+
+/*=================================================
+参加者の声カードめくり
+===================================================*/
+const cards = document.querySelectorAll('.card-images', '.voice-text');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.intersectionRatio >= 0.5) {
+      entry.target.classList.add('is-visible');
+    } else {
+      entry.target.classList.remove('is-visible');
+    }
+  });
+}, {
+  threshold: [0.8] //要素が80％画面に入ったら反応
+});
+
+cards.forEach(card => observer.observe(card));
+
+/*=================================================
+ハイブリッドスクロール
+===================================================*/
