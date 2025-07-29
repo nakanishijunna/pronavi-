@@ -7,6 +7,7 @@ html {
 
 body {
     font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    background-color: #FAF8F1;
 }
 
 h3 {
@@ -38,6 +39,42 @@ main {
     margin: 0 auto;
 }
 
+
+/* 
+ローディングアニメーション
+担当：かおり 
+*/
+
+.loader-container {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: #000;
+}
+
+.loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -50%);
+    width: 80rem;
+}
+
+.loader-container p {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 3.5rem;
+    font-family: "DotGothic16", sans-serif;
+    letter-spacing: 0.3rem;
+}
 
 /* ナビケーション */
 header {
@@ -158,7 +195,99 @@ header {
 .ja {
     font-size: 2.8rem;
     border-bottom: 0.3rem dashed #573F3F;
+    margin-bottom: 30px;
 }
+
+/* はづき担当 */
+/* メインビジュアル */
+.main-visual {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 0 4%;
+    z-index: 20;
+    /* gap: 50px; */
+}
+
+.main-visual .hero-left p {
+    color: #573F3F;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.highlight {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #F2880F;
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+
+.hero-left img {
+    font-size: 2.5rem;
+    line-height: 1.6;
+    color: #333;
+    width: 300px;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 画面右側フレームワーク（動画スライド表示） */
+.monitor-frame {
+    width: 100%;
+    height: 620px;
+    right: -80px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 300px 0 0 300px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+nav {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+nav.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
 
 /* じゅんな担当 */
 /* 参加者の声 */
@@ -253,6 +382,7 @@ header {
     opacity: 1;
 }
 
+
 /* じゅんな担当行動ステップ */
 /* step */
 .step-items {
@@ -339,4 +469,440 @@ header {
     height: 15rem;
     object-fit: cover;
     object-position: top;
+=======
+/* 
+    かおり担当
+    つながる場所 共通
+                     */
+
+.scroll-section {
+    overflow-x: auto;
+    overflow-y: hidden;
 }
+
+.scroll-list {
+    display: flex;
+    width: max-content;
+    gap: 2.5rem;
+    margin-block: 7rem;
+}
+
+.scroll-list li {
+    border: solid 1px #ABDAD1;
+    border-radius: 1rem;
+    width: 48rem;
+    height: 50rem;
+    background-color: #fff;
+    /* モダンブラウザ向け：8桁の16進数 */
+    box-shadow: 1rem 1rem 0.4rem #00000026;
+    /* 念のためIE11向け：rgba */
+    box-shadow: 1rem 1rem 0.4rem rgba(0, 0, 0, 0.15);
+    padding-top: 4rem;
+    padding-inline: 5rem;
+}
+
+.scroll-list span {
+    font-size: 2.7rem;
+}
+
+.scroll-list p {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-block: 1.5rem;
+}
+
+h3 {
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: normal;
+    border-bottom: solid 3px #ffbb00;
+    padding-bottom: 0.3rem;
+}
+
+h3 span {
+    color: #ffbb00;
+
+}
+
+/* 月曜日セミナー */
+
+.seminar {
+    position: relative;
+}
+
+.seminar-bg {
+    object-fit: cover;
+    width: 26.6rem;
+    height: 20.6rem;
+}
+
+.seminar-avatar {
+    position: absolute;
+    right: 6%;
+    bottom: 0;
+    height: 18rem;
+}
+
+.hand {
+    position: absolute;
+    bottom: 35%;
+    right: 9%;
+    transform-origin: bottom center;
+    animation: hand 2s infinite ease-in-out;
+    height: 8rem;
+}
+
+@keyframes hand {
+    0% {
+        transform: rotate(9deg);
+    }
+
+    50% {
+        transform: rotate(18deg);
+    }
+
+    100% {
+        transform: rotate(9deg);
+    }
+}
+
+/* 目的別相談部屋 */
+
+.room {
+    position: relative;
+}
+
+.whitebord {
+    position: absolute;
+    width: 19.9rem;
+    left: 10rem;
+}
+
+.pinkavatar {
+    position: absolute;
+}
+
+.greenavatar-back {
+    position: absolute;
+    bottom: 4rem;
+    right: 11rem;
+    width: 10.5rem;
+}
+
+.talk {
+    position: absolute;
+    animation: fadeInOut 5s infinite ease-in-out;
+    width: 9.1rem;
+}
+
+.room-talk {
+    bottom: 14rem;
+    right: 7rem;
+}
+
+@keyframes fadeInOut {
+
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(-5px);
+        /* ふわっと浮く */
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(-5px);
+        /* 表示されたまま */
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+
+/* 毎日オープン */
+
+.open {
+    position: relative;
+}
+
+.open-avatar {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28rem;
+}
+
+.sun {
+    position: absolute;
+    bottom: 20rem;
+    animation-name: fadeSun;
+}
+
+.moon {
+    position: absolute;
+    bottom: 5rem;
+    right: 4rem;
+    animation-name: fadeMoon;
+}
+
+.sun,
+.moon {
+    opacity: 0;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeSun {
+    0% {
+        opacity: 0.1;
+    }
+
+    5% {
+        opacity: 0.5;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    55% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeMoon {
+    5% {
+        opacity: 0.1;
+    }
+
+
+    55% {
+        opacity: 0.7;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+
+    95% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
+}
+
+
+/* 定期的にオンライン飲み会開催 */
+
+.online {
+    position: relative;
+}
+
+.onlineBg {
+    position: absolute;
+    right: 5rem;
+    border-radius: 2rem;
+}
+
+.glass-animation {
+    position: relative;
+}
+
+.cheers {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.apart-glass {
+    opacity: 0;
+    animation: apartGlass 2s infinite steps(1);
+    width: 12.3rem;
+}
+
+.close-glass {
+    animation: closeGlass 2s infinite steps(1);
+    opacity: 0;
+}
+
+@keyframes apartGlass {
+    0% {
+        opacity: 1;
+    }
+
+
+    49.9% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes closeGlass {
+    0% {
+        opacity: 0;
+    }
+
+    49.9% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* いつでも誰かとつながれる */
+
+.anytime {
+    position: relative;
+}
+
+.anytimeBg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.anytime-avatar {
+    position: absolute;
+    bottom: 5rem;
+    left: 5rem;
+}
+
+.side-avatar {
+    position: absolute;
+    bottom: 3rem;
+    right: 5rem;
+    width: 13.8rem;
+}
+
+.anytime-talk {
+    position: absolute;
+    bottom: 14rem;
+    right: 9rem;
+}
+
+/* はづき担当 */
+/* よくある質問 */
+#faq {
+    background-color: #f9f9f9;
+}
+
+/* 質問ブロック */
+.faq-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 2rem 2.4rem;
+    margin-bottom: 2.4rem;
+    transition: box-shadow 0.3s ease;
+}
+
+/* ホバー時に少し浮かせる */
+.faq-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 質問ボタン */
+.faq-item .question {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    color: #573F3F;
+    padding: 0;
+    position: relative;
+}
+
+/* 質問の矢印追加（任意） */
+.faq-item .question::after {
+    content: "▼";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.6rem;
+    transition: transform 0.3s ease;
+}
+
+/* 開いたときに矢印回転 */
+.faq-item.open .question::after {
+    transform: rotate(180deg);
+}
+
+/* 答えのスタイル */
+.faq-item .answer {
+    font-size: 1.6rem;
+    color: #333;
+    padding: 1.6rem;
+    line-height: 1.8;
+    display: none;
+    margin-top: 1.2rem;
+    background: #fef9f4;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* マーカー風アニメーション */
+.marker {
+    position: relative;
+    background: transparent;
+    z-index: 0;
+}
+
+.marker::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    /* 文字の少し下に引く */
+    bottom: 0.08em;
+    width: 100%;
+    height: 0.4em;
+    background: rgba(245, 194, 107, 0.5);
+    z-index: -1;
+    animation: markerDraw 0.8s ease forwards;
+    transform: scaleX(0);
+    transform-origin: left;
+    border-radius: 2px;
+}
+
+/* マーカを引く場所指定 */
+@keyframes markerDraw {
+    to {
+        transform: scaleX(1);
+    }
+
