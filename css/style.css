@@ -353,7 +353,7 @@ nav.show {
 }
 
 
-.card-images:hover::after {
+.card-images.is-visible::after {
     border-width: 50rem;
 }
 
@@ -378,7 +378,7 @@ nav.show {
 }
 
 
-.card-images:hover .voice-text {
+.card-images.is-visible .voice-text {
     opacity: 1;
 }
 
@@ -481,6 +481,8 @@ nav.show {
     object-position: top;
 }
 
+/* ======= */
+
 /* 
     かおり担当
     つながる場所 共通
@@ -507,8 +509,12 @@ nav.show {
     overflow: auto;
 }
 
+
 .horizontal_scroll .scroll-section.nobar {
     overflow: hidden;
+.scroll-section {
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .horizontal_scroll .scroll-section > * {
@@ -951,6 +957,7 @@ h3 span {
     }
 }
 
+
 /* footer */
 .grad-container {
     height: 200vh;
@@ -1074,3 +1081,18 @@ footer {
 @media (max-width: 390px) {
     
 }
+
+
+/* フェードイン */
+.fadeIn {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
