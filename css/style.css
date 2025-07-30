@@ -224,11 +224,14 @@ header {
     text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
 }
 
-.logo {
+.logo-pc {
     width: 120px;
     margin-bottom: 20px;
 }
 
+.logo-sp {
+    display: none;
+}
 
 .hero-left img {
     font-size: 2.5rem;
@@ -923,3 +926,85 @@ h3 span {
     transform: translateY(0);
 }
 
+/* タブレット用（391〜768px） */
+@media screen and (max-width: 768px) {
+
+    /* ナビケーション */
+    header {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        overflow-y: visible;
+        z-index: 1000;
+        background-color: #413535cc;
+        padding: 0;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 7rem;
+        padding: 1rem;
+    }
+
+    .logo-pc {
+        display: none;
+    }
+
+    .logo-sp {
+        display: block;
+    }
+
+    .nav-link {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .link-btn {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 0;
+        font-size: 1.4rem;
+    }
+
+    .btn-text {
+        position: static;
+        transform: none;
+        color: #F2880F;
+        padding-top: 10px;
+    }
+
+    .btn-text.default {
+        color: #fff;
+        font-weight: 400;
+    }
+
+    .cta-btn {
+        width: 18rem;
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+
+
+
+    main {
+        margin-inline: auto;
+    }
+
+    /*  かおり担当 つながる場所*/
+    .scroll-list {
+        flex-direction: column;
+    }
+}
+
+
+/* スマホ小さめ（〜390px） */
+@media screen and (max-width: 390px) {}
