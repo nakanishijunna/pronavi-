@@ -512,9 +512,6 @@ nav.show {
 
 .horizontal_scroll .scroll-section.nobar {
     overflow: hidden;
-.scroll-section {
-    overflow-x: scroll;
-    overflow-y: hidden;
 }
 
 .horizontal_scroll .scroll-section > * {
@@ -965,13 +962,11 @@ h3 span {
 }
 
 .grad {
-    /* width: 100vw; */
     height: 100vh;
     background: linear-gradient(180deg, rgba(250, 248, 241, 1)10%, rgba(20, 18, 57, 1)90%);
 }
 
 .hero {
-    /* width: 100vw; */
     height: 100vh;
     text-align: center;
     display: flex;
@@ -1094,5 +1089,4 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
-
 
