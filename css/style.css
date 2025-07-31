@@ -137,7 +137,7 @@ header {
 
 .link-btn:hover .hover {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0rem);
     /*下から出てくる*/
 }
 
@@ -279,13 +279,13 @@ header {
     opacity: 1;
 }
 
-nav {
+header {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
 }
 
-nav.show {
+header.show {
     opacity: 1;
     pointer-events: auto;
 }
@@ -517,7 +517,7 @@ nav.show {
     overflow: hidden;
 }
 
-.horizontal_scroll .scroll-section > * {
+.horizontal_scroll .scroll-section>* {
     flex-basis: 40%;
     flex-shrink: 0;
     /* aspect-ratio: 16 / 9; */
@@ -1055,16 +1055,20 @@ footer {
     #step .sec-wrapper {
         padding-inline: 0;
     }
+
     .step-item {
         width: 90%;
         padding: 2rem;
     }
+
     .step-item+.step-item {
         margin-top: 5rem;
     }
+
     .step-item:nth-child(odd) {
         border-radius: 3rem 0 0 3rem;
     }
+
     .step-item:nth-child(even) {
         border-radius: 0 3rem 3rem 0;
     }
@@ -1076,9 +1080,7 @@ footer {
 
 }
 
-@media (max-width: 390px) {
-    
-}
+@media (max-width: 390px) {}
 
 
 /* フェードイン */
@@ -1105,7 +1107,7 @@ footer {
         left: 0;
         overflow-y: visible;
         z-index: 1000;
-        background-color: #413535cc;
+        background-color: #F8BE7D;
         padding: 0;
     }
 
@@ -1113,9 +1115,17 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 100%;
+        /* max-width: 60rem; */
         height: 7rem;
+        gap: clamp(0.5rem, 2vw, 2rem);
+        /* ← gapを可変に */
+        margin-inline: auto;
         padding: 1rem;
+    }
+
+    .logo-area {
+        flex-shrink: 0;
+        padding-right: 1rem;
     }
 
     .logo-pc {
@@ -1127,10 +1137,23 @@ footer {
     }
 
     .nav-link {
-        margin: 0;
         display: flex;
         justify-content: space-between;
-        gap: 1rem;
+        flex-wrap: wrap;
+        flex: 1 1 auto;
+        /* 可変にするために追加 */
+        gap: clamp(0.5rem, 1.5vw, 1.2rem);
+        /* ボタン間の間隔 */
+        max-width: 60%;
+        margin: 0;
+    }
+
+    .nav-link li {
+        min-width: 6rem;
+    }
+
+    .nav-link li:nth-child(2) {
+        width: 7rem;
     }
 
     .link-btn {
@@ -1141,26 +1164,54 @@ footer {
         font-size: 1.4rem;
     }
 
+    /* 
+    スマホでは hover による変更を打ち消す
+    競合回避のためセレクタ詳細度高める書き方にしました。
+    */
+
+    .nav-link .link-btn .default,
+    .nav-link .link-btn:hover .default {
+        opacity: 1;
+        transform: none;
+        color: #1F978B;
+        text-shadow: 0.1rem 0.1rem 0.3rem #C8FCF2;
+    }
+
+    .nav-link .link-btn .hover,
+    .nav-link .link-btn:hover .hover {
+        opacity: 0;
+        transform: none;
+    }
+
     .btn-text {
         position: static;
         transform: none;
-        color: #F2880F;
-        padding-top: 10px;
+        color: #21968B;
+        font-weight: bold;
+        padding-top: 1.5rem;
     }
 
-    .btn-text.default {
-        color: #fff;
-        font-weight: 400;
-    }
 
     .cta-btn {
-        width: 18rem;
-        display: block;
-        text-align: center;
+        width: auto;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2.5rem;
+        font-size: 1.4rem;
+        flex-shrink: 0;
         margin: 0;
+        padding: 0 1.2rem;
     }
 
-
+    .cta-btn::before,
+    .cta-btn::after {
+        border-radius: 2.5rem;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
     main {
         margin-inline: auto;
