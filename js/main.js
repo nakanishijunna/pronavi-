@@ -61,7 +61,7 @@ questions.forEach((q) => {
 /*=================================================
 グラデが始まったらナビゲーションをフェードアウトする
 ===================================================*/
-const nav = document.querySelector("nav");
+const nav = document.querySelector("header");
 const grad = document.querySelector(".grad-container");
 const triggerHeight = window.innerHeight; // メインビジュアルの高さの目安
 
