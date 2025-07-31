@@ -7,6 +7,21 @@ window.addEventListener("load", () => {
   loaderContainer.classList.add("hidden");
 });
 
+
+/*=================================================
+ハンバーガーメニュー
+===================================================*/
+$(".openbtn").click(function () {//ボタンがクリックされたら
+  $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+  $(".sidebar").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+});
+
+$(".sidebar a").click(function () {//ナビゲーションのリンクがクリックされたら
+  $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
+  $(".sidebar").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+});
+
+
 /*=================================================
 メインビジュアルの画像スライドショー表示
 ===================================================*/
@@ -65,6 +80,9 @@ const grad = document.querySelector(".grad-container");
 const triggerHeight = window.innerHeight; // メインビジュアルの高さの目安
 
 function updateNavVisibility() {
+  // 画面幅が768px以下なら、スクロールによる自動制御は行わない
+  if (window.innerWidth <= 768) return;
+
   const gradRect = grad.getBoundingClientRect();
   const gradIsVisible =
     gradRect.bottom > 0 && gradRect.top < window.innerHeight;
