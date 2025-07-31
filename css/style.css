@@ -256,6 +256,7 @@ header {
     width: 120px;
     margin-bottom: 20px;
 }
+
 .logo-sp {
     display: none;
 }
@@ -1102,79 +1103,6 @@ footer {
         margin-left: 0;
     }
 
-    /* 参加者の声 */
-    .voice-card {
-        background-size: 97%;
-        padding-top: 15rem;
-    }
-
-    .hover-slide-left,
-    .hover-slide-right {
-        justify-content: center;
-    }
-
-    .card-images {
-        width: 67%;
-    }
-
-    .card-images img {
-        border-radius: 0;
-    }
-
-    .pc {
-        display: none !important;
-    }
-
-    .sp {
-        display: block !important;
-    }
-
-    /* step */
-    #step .sec-wrapper {
-        padding-inline: 0;
-    }
-
-    .step-item {
-        width: 90%;
-        padding: 2rem;
-    }
-
-    .step-item+.step-item {
-        margin-top: 5rem;
-    }
-
-    .step-item:nth-child(odd) {
-        border-radius: 3rem 0 0 3rem;
-    }
-
-    .step-item:nth-child(even) {
-        border-radius: 0 3rem 3rem 0;
-    }
-
-    /*footer*/
-    .hero p {
-        font-size: 2.4rem;
-    }
-
-}
-
-@media (max-width: 390px) {}
-
-
-/* フェードイン */
-.fadeIn {
-    opacity: 0;
-    transform: translateY(3rem);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.is-active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* タブレット用（391〜768px） */
-@media screen and (max-width: 768px) {
 
     /* ナビケーション */
     header {
@@ -1193,10 +1121,8 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        /* max-width: 60rem; */
+        max-width: 60rem;
         height: 7rem;
-        gap: clamp(0.5rem, 2vw, 2rem);
-        /* ← gapを可変に */
         margin-inline: auto;
         padding: 1rem;
     }
@@ -1217,11 +1143,6 @@ footer {
     .nav-link {
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
-        flex: 1 1 auto;
-        /* 可変にするために追加 */
-        gap: clamp(0.5rem, 1.5vw, 1.2rem);
-        /* ボタン間の間隔 */
         max-width: 60%;
         margin: 0;
     }
@@ -1299,7 +1220,77 @@ footer {
     .scroll-list {
         flex-direction: column;
     }
+
+
+    /* 参加者の声 */
+    .voice-card {
+        background-size: 97%;
+        padding-top: 15rem;
+    }
+
+    .hover-slide-left,
+    .hover-slide-right {
+        justify-content: center;
+    }
+
+    .card-images {
+        width: 67%;
+    }
+
+    .card-images img {
+        border-radius: 0;
+    }
+
+    .pc {
+        display: none !important;
+    }
+
+    .sp {
+        display: block !important;
+    }
+
+    /* step */
+    #step .sec-wrapper {
+        padding-inline: 0;
+    }
+
+    .step-item {
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .step-item+.step-item {
+        margin-top: 5rem;
+    }
+
+    .step-item:nth-child(odd) {
+        border-radius: 3rem 0 0 3rem;
+    }
+
+    .step-item:nth-child(even) {
+        border-radius: 0 3rem 3rem 0;
+    }
+
+    /*footer*/
+    .hero p {
+        font-size: 2.4rem;
+    }
+
 }
+
+
+/* フェードイン */
+.fadeIn {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 
 /* スマホ小さめ（〜390px） */
