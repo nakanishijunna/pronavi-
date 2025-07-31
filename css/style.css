@@ -816,7 +816,11 @@ h3 span {
 }
 
 @keyframes fadeMoon {
-    5% {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
         opacity: 0.1;
     }
 
@@ -830,11 +834,11 @@ h3 span {
     }
 
 
-    95% {
+    90% {
         opacity: 0.7;
     }
 
-    100% {
+    95% {
         opacity: 0.1;
     }
 }
@@ -1103,6 +1107,14 @@ footer {
         margin-left: 0;
     }
 
+    /* ローディングアニメーション */
+    .loader {
+        width: 60rem;
+    }
+
+    .loader-container p {
+        font-size: 2.6rem;
+    }
 
     /* ナビケーション */
     header {
@@ -1217,8 +1229,35 @@ footer {
     }
 
     /*  かおり担当 つながる場所*/
+
+    .horizontal_scroll .scroll-section>* {
+        display: block;
+        overflow-x: hidden;
+        background-color: transparent;
+        flex-basis: 100%;
+    }
+
     .scroll-list {
         flex-direction: column;
+    }
+
+    .scroll-list span {
+        font-size: 2.5rem;
+    }
+
+    .scroll-list p {
+        fint-size: 1.6rem;
+    }
+
+    .scroll-list li {
+        width: 90%;
+        max-width: 48rem;
+        margin-inline: auto;
+        margin-bottom: 3rem;
+    }
+
+    h3 {
+        font-size: 2rem;
     }
 
 
