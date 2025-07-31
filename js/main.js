@@ -57,7 +57,6 @@ questions.forEach((q) => {
   });
 });
 
-
 /*=================================================
 グラデが始まったらナビゲーションをフェードアウトする
 ===================================================*/
@@ -145,18 +144,17 @@ document.addEventListener("DOMContentLoaded", () => {
   //end of DOMContentLoaded
 });
 
-
 /*=================================================
 フェードイン
 ===================================================*/
-window.addEventListener('scroll', () => {
-  const elements = document.querySelectorAll('.fadeIn');
+window.addEventListener("scroll", () => {
+  const elements = document.querySelectorAll(".fadeIn");
   const triggerBottom = window.innerHeight * 0.85;
 
-  elements.forEach(el => {
+  elements.forEach((el) => {
     const rect = el.getBoundingClientRect();
     if (rect.top < triggerBottom) {
-      el.classList.add('is-active');
+      el.classList.add("is-active");
     }
   });
 });
@@ -164,23 +162,45 @@ window.addEventListener('scroll', () => {
 /*=================================================
 参加者の声カードめくり
 ===================================================*/
-const cards = document.querySelectorAll('.card-images', '.voice-text');
+const cards = document.querySelectorAll(".card-images", ".voice-text");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.intersectionRatio >= 0.5) {
-      entry.target.classList.add('is-visible');
-    } else {
-      entry.target.classList.remove('is-visible');
-    }
-  });
-}, {
-  threshold: [0.8] //要素が80％画面に入ったら反応
-});
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio >= 0.5) {
+        entry.target.classList.add("is-visible");
+      } else {
+        entry.target.classList.remove("is-visible");
+      }
+    });
+  },
+  {
+    threshold: [0.8], //要素が80％画面に入ったら反応
+  }
+);
 
-cards.forEach(card => observer.observe(card));
+cards.forEach((card) => observer.observe(card));
 
 /*=================================================
-ハイブリッドスクロール
+タイピングアニメーション
 ===================================================*/
+const typingText = document.querySelector(".typingText");
+const text = "あなたも一歩踏み出してみませんか？";
+let index = 0;
 
+function typingWrite() {
+  if (index < text.length) {
+    typingText.innerHTML += text.charAt(index);
+    // 変数indexを1増やす（文字を一つ追加）
+    index++;
+    // 乱数を生成
+    const randomInterval = Math.floor(Math.random() * 100) + 50;
+    // 一文字ずつ表示する関数をランダムな時間待ってから実行する
+    setTimeout(typingWrite, randomInterval);
+  }
+};
+
+window.addEventListener("load", () => {
+  loaderContainer.classList.add("concealed");
+  typingWrite(); // タイピング開始！
+});
