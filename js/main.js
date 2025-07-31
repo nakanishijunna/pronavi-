@@ -25,14 +25,23 @@ $(".sidebar a").click(function () {//ナビゲーションのリンクがクリ�
 /*=================================================
 メインビジュアルの画像スライドショー表示
 ===================================================*/
-let current = 0;
-const slides = document.querySelectorAll(".slide");
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slide");
+  let current = 0;
+  const total = slides.length;
 
-setInterval(() => {
-  slides[current].classList.remove("active");
-  current = (current + 1) % slides.length;
-  slides[current].classList.add("active");
-}, 3000);
+  setInterval(() => {
+    // 全スライドを一旦非表示に
+    slides.forEach(slide => slide.classList.remove("active"));
+
+    // 現在のスライドを表示
+    slides[current].classList.add("active");
+
+    // 次のスライドへ
+    current = (current + 1) % total;
+  }, 3000);
+});
+
 
 /*=================================================
 メインビジュアルを過ぎた後、navを表示

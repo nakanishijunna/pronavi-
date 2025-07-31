@@ -274,7 +274,7 @@ header {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    padding: 0 0 0 4%;
+    padding: 4% 0 0 4%;
     z-index: 20;
     position: relative;
 }
@@ -345,9 +345,12 @@ header {
 }
 
 .main-visual .hero-left p {
-    padding-bottom: 50px;
-    margin-bottom: 50px;
+    color: #573F3F;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
     border-bottom: 0.3rem dashed #573F3F;
+    padding-bottom: 20px;
 }
 
 .scroll-text {
@@ -369,6 +372,7 @@ header {
     display: inline-flex;
     animation: scroll-right 40s linear infinite;
     overflow-x: hidden;
+    padding-top: 30px;
 }
 
 .scroll-track p {
@@ -1108,6 +1112,55 @@ h3 span {
     position: relative;
 }
 
+.slider-wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 700px;
+    position: relative;
+    padding: 90px 0;
+    box-sizing: border-box;
+}
+
+.slider-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 30s linear infinite;
+}
+
+.room-slide {
+    flex-shrink: 0;
+    width: 600px;
+    margin: 0 30px;
+    position: relative;
+}
+
+.room-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 50px;
+}
+
+.room-slide.up {
+    transform: translateY(-80px);
+}
+
+.room-slide.down {
+    transform: translateY(80px);
+}
+
+/* スクロールループ */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 .grad {
     height: 100vh;
     background: linear-gradient(180deg, rgba(250, 248, 241, 1)10%, rgba(20, 18, 57, 1)90%);
@@ -1178,9 +1231,25 @@ footer {
     padding-block: 1rem;
     text-align: center;
     font-size: 1.2rem;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     width: 100%;
+}
+
+/* Sticky Footer */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    flex: 1;
 }
 
 /* responsive */
@@ -1190,6 +1259,81 @@ footer {
     main {
         margin-left: 0;
     }
+
+    .main-visual {
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+
+    .hero-inner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .monitor-frame {
+        border-radius: 0;
+    }
+
+    .main-visual .hero-left p {
+        border-bottom: none;
+        text-align: center;
+        align-items: center;
+        margin-top: 130px;
+    }
+
+    .cta-btn {
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .hero-left img {
+        border-top: none;
+    }
+
+    .main-visual::after {
+        border-top: none;
+    }
+
+    .scroll-track {
+        margin-top: 80px;
+    }
+
+    /* 作業部屋紹介 */
+
+
+    .slider-wrapper {
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .slider-track {
+        display: flex;
+        flex-direction: column;
+        animation: none;
+        /* スクロールアニメーションを無効化 */
+        width: 100%;
+        /* max-contentではなく幅100% */
+        align-items: center;
+        /* 中央寄せ（任意） */
+        gap: 2rem;
+    }
+
+    .room-slide {
+        width: 90%;
+        /* 画面幅に合わせる */
+        margin: 0;
+        /* 横マージンなし */
+        transform: none !important;
+        /* .up/.down の縦ズレを無効化 */
+    }
+
+    .room-slide img {
+        width: 100%;
+        height: auto;
+    }
+
+
+
 
     /* ローディングアニメーション */
     .loader {
