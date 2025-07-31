@@ -30,7 +30,7 @@ img {
 }
 
 main {
-    margin-left: 30rem;
+    margin-left: 25rem;
 }
 
 .sec-wrapper {
@@ -78,7 +78,7 @@ main {
 
 /* ナビケーション */
 header {
-    width: 30rem;
+    width: 25rem;
     height: 100vh;
     padding: 10rem 8rem 0 2rem;
     position: fixed;
@@ -374,8 +374,8 @@ header.show {
 /* じゅんな担当 */
 /* 参加者の声 */
 .voice-card {
-    padding-top: 19rem;
-    padding-bottom: 3rem;
+    padding-top: 30%;
+    padding-bottom: 10%;
     background-image: url(../img/コルクボード.jpg);
     background-size: cover;
     background-position: top center;
@@ -385,7 +385,7 @@ header.show {
 .hover-slide-left,
 .hover-slide-right {
     margin-bottom: 1.6rem;
-    padding-inline: 8rem;
+    padding-inline: 8%;
     display: flex;
 }
 
@@ -447,7 +447,7 @@ header.show {
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 4.5rem 7rem 2rem 7rem;
+    padding: 2rem 7rem;
     background: rgba(0, 0, 0, 0.6);
     color: white;
     font-size: 1.6rem;
@@ -457,19 +457,13 @@ header.show {
     transition: opacity 0.4s ease;
     box-sizing: border-box;
     z-index: 1;
+    display: flex;
+    align-items: center;
 }
 
 
 .card-images.is-visible .voice-text {
     opacity: 1;
-}
-
-.pc {
-    display: block !important;
-}
-
-.sp {
-    display: none !important;
 }
 
 
@@ -485,10 +479,10 @@ header.show {
 }
 
 .step-item {
-    width: 53%;
+    width: 60%;
     height: 40rem;
     margin: 0 auto;
-    padding: 4rem 4rem;
+    padding: 4rem 3rem;
     display: inline-block;
     position: relative;
     background-color: #fff;
@@ -1067,13 +1061,35 @@ h3 span {
     align-items: center;
 }
 
-.hero p {
+.typingText {
     margin-top: -25rem;
     margin-bottom: 15rem;
     color: #fff;
     font-size: 4rem;
     font-family: "DotGothic16", sans-serif;
     font-weight: 400;
+}
+
+.typingText.concealed {
+    display: none;
+}
+/*カーソル点滅アニメーション*/
+.typingText::after {
+    content: "|";
+    color: #fff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .hero a {
@@ -1224,13 +1240,13 @@ footer {
 
     /* 参加者の声 */
     .voice-card {
-        background-size: 97%;
-        padding-top: 15rem;
+        background-size: 130%;
     }
 
     .hover-slide-left,
     .hover-slide-right {
         justify-content: center;
+        padding-inline: 0;
     }
 
     .card-images {
@@ -1241,12 +1257,9 @@ footer {
         border-radius: 0;
     }
 
-    .pc {
-        display: none !important;
-    }
-
-    .sp {
-        display: block !important;
+    .voice-text {
+        padding-inline: 2rem;
+        font-size: 1.2rem;
     }
 
     /* step */
@@ -1257,6 +1270,7 @@ footer {
     .step-item {
         width: 90%;
         padding: 2rem;
+        height: 35rem;
     }
 
     .step-item+.step-item {
@@ -1265,17 +1279,41 @@ footer {
 
     .step-item:nth-child(odd) {
         border-radius: 3rem 0 0 3rem;
+        padding-inline: 5rem 4rem;
     }
 
     .step-item:nth-child(even) {
         border-radius: 0 3rem 3rem 0;
+        padding-inline: 4rem 5rem;
     }
 
     /*footer*/
-    .hero p {
-        font-size: 2.4rem;
+    .typingText {
+        font-size: 2.2rem;
     }
 
+}
+
+@media (max-width: 390px) {
+
+    /* voice */
+    .voice-text {
+        font-size: 1.2rem;
+    }
+
+    /*step*/
+    .step-item {
+        height: 35rem;
+    }
+
+    .step-item p {
+        font-size: 1rem;
+    }
+
+    /* footer */
+    .typingText {
+        font-size: 1.8rem;
+    }
 }
 
 
