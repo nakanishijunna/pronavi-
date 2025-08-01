@@ -1,7 +1,7 @@
 /*=================================================
 ローディングアニメーション　担当：かおり
 ===================================================*/
-const loaderContainer = document.querySelector(".loader-container");
+const loaderContainer = document.querySelector(".loading-wrapper");
 
 window.addEventListener("load", () => {
   loaderContainer.classList.add("hidden");
