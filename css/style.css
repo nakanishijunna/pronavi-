@@ -87,9 +87,9 @@ main {
     right: 10px;
     background: #666;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.5rem;
 }
 
 .openbtn span {
@@ -147,7 +147,7 @@ main {
 header {
     width: 25rem;
     height: 100vh;
-    padding: 10rem 8rem 0 2rem;
+    padding: 10rem 4rem 0 2rem;
     position: fixed;
     top: 0;
     overflow-y: auto;
@@ -160,6 +160,8 @@ header {
 .nav-link {
     margin-bottom: 4rem;
     margin-inline: auto;
+    text-align: center;
+    align-items: center;
 }
 
 .link-btn {
@@ -1263,6 +1265,7 @@ body {
     .main-visual {
         flex-direction: column-reverse;
         padding: 0;
+        z-index: 0;
     }
 
     .hero-inner {
@@ -1346,27 +1349,36 @@ body {
 
 
     /* ナビケーション */
-
     .openbtn {
         display: block;
+        position: fixed;
     }
 
-    .sidebar {
-        position: fixed;
-        z-index: 9999;
-        /*ナビのスタート位置と形状*/
+    header {
+        padding: 0;
+        /* ナビのスタート位置と形状 */
         top: -120%;
         left: 0;
         width: 100%;
         height: 100vh;
-        /*ナビの高さ*/
+        /* ナビの高さ */
         background-color: #F8BE7D;
-        /*動き*/
-        transition: all 0.6s;
+        /* 動き */
+        pointer-events: auto;
+        transform: translateY((-100%));
+        transition: transform 0.6s;
     }
 
-    .sidebar.panelactive {
+    header.panelactive {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        position: fixed;
         top: 0;
+        padding-inline: 35%;
+        text-align: center;
+        z-index: 200;
+        transform: translateY(0);
     }
 
     .logo-area {
@@ -1406,7 +1418,7 @@ body {
     }
 
     .scroll-list p {
-        fint-size: 1.6rem;
+        font-size: 1.6rem;
     }
 
     .scroll-list li {
