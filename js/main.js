@@ -227,7 +227,19 @@ function typingWrite() {
   }
 };
 
+// Intersection Observerの設定
+const typingObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      typingWrite(); //表示されたら開始
+      obs.unobserve(entry.target); //　一度だけの場合はなし
+    }
+  });
+}, {
+  threshold: 0.5 //要素が50％見えたら動かす
+});
+
 window.addEventListener("load", () => {
   loaderContainer.classList.add("concealed");
-  typingWrite(); // タイピング開始！
+  typingObserver.observe(typingText); // typingTextが表示されるのを監視開始
 });
