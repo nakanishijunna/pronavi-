@@ -1153,7 +1153,7 @@ h3 span {
 .slider-track {
     display: flex;
     width: max-content;
-    animation: scroll-left 30s linear infinite;
+    animation: scroll-left 40s linear infinite;
 }
 
 .room-slide {
@@ -1417,12 +1417,14 @@ body {
         /* .up/.down の縦ズレを無効化 */
     }
 
+    .room-slide:nth-child(n+7) {
+        display: none;
+    }
+
     .room-slide img {
         width: 100%;
         height: auto;
     }
-
-
 
 
     /* ローディングアニメーション */

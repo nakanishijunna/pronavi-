@@ -243,3 +243,16 @@ window.addEventListener("load", () => {
   loaderContainer.classList.add("concealed");
   typingObserver.observe(typingText); // typingTextが表示されるのを監視開始
 });
+
+
+
+const slider = document.getElementById('slider');
+slider.innerHTML += slider.innerHTML; // DOM複製
+let x = 0;
+function scrollLoop() {
+  x += 1;
+  if (x >= slider.scrollWidth / 2) x = 0;
+  slider.style.transform = `translateX(-${x}px)`;
+  requestAnimationFrame(scrollLoop);
+}
+scrollLoop();
