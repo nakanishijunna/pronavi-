@@ -92,7 +92,7 @@ main {
     /*ボタンを最前面に*/
     top: 10px;
     right: 10px;
-    background: #d0ccc7;
+    background: #27968b;
     cursor: pointer;
     width: 5rem;
     height: 5rem;
@@ -155,7 +155,6 @@ header {
     width: 25rem;
     height: 100vh;
     padding: 10rem 2em 0 2rem;
-
     position: fixed;
     top: 0;
     overflow-y: auto;
@@ -283,6 +282,7 @@ header {
 #first-view {
     min-height: 100vh;
 }
+
 .mv-wrapper {
     width: 100%;
     height: auto;
@@ -1412,7 +1412,7 @@ body {
     }
 
 
-    /* ナビケーション */
+    /* ナビゲーション */
     .openbtn {
         display: block;
         position: fixed;
@@ -1420,7 +1420,6 @@ body {
 
     header {
         padding: 0;
-        /* ナビのスタート位置と形状 */
         top: 0%;
         right: -120%;
         width: 100%;
@@ -1428,22 +1427,25 @@ body {
         background-color: #eff9c3e6;
         /* 動き */
         pointer-events: auto;
-        transform: translateY((-100%));
-        transition: transform 0.6s;
+        transform: translateY((-50%));
+        opacity: 0;
+        transition: transform 1.3s ease, opacity 1.3s ease;
     }
 
     header.panelactive {
         opacity: 1;
-        width: 35%;
-        height: 35rem;
+        width: 20rem;
+        height: 30rem;
         position: fixed;
         top: 0;
         right: 0;
-        padding-top: 1rem;
-        padding-inline: 1rem;
+        pointer-events: auto;
         text-align: center;
         z-index: 200;
         transform: translateY(0);
+        border-radius: 10%;
+        padding-top: 1rem;
+        padding-inline: 1rem;
     }
 
     .logo-area {
@@ -1459,6 +1461,14 @@ body {
         display: block;
     }
 
+    .nav-link .link-btn,
+    .sidebar .cta-btn {
+        font-size: 1.4rem;
+    }
+
+    .sidebar .cta-btn {
+        width: 12rem;
+    }
 
     main {
         margin-inline: auto;
