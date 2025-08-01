@@ -92,7 +92,7 @@ main {
     /*ボタンを最前面に*/
     top: 10px;
     right: 10px;
-    background: #666;
+    background: #27968b;
     cursor: pointer;
     width: 50px;
     height: 50px;
@@ -280,6 +280,7 @@ header {
 #first-view {
     min-height: 100vh;
 }
+
 .mv-wrapper {
     width: 100%;
     height: auto;
@@ -292,6 +293,7 @@ header {
     height: auto;
     min-height: auto;
     width: 100%;
+    margin-top: 60px;
     /* align-items: center;
     justify-content: center;
     padding: 4% 0 0 0;
@@ -307,7 +309,7 @@ header {
 
     width: 100%;
     height: 1px;
-    border-top: 1px solid #573F3F;
+    /* border-top: 1px solid #573F3F; */
     z-index: 1;
 }
 
@@ -328,6 +330,7 @@ header {
 
 .hero-left {
     padding-left: 3rem;
+    padding-top: 6rem;
 }
 
 .main-visual .hero-left p {
@@ -384,7 +387,7 @@ header {
     white-space: nowrap;
     font-family: 'DotGothic16';
     color: #f5b56b;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: bold;
     opacity: 0.7;
     z-index: 2;
@@ -396,7 +399,7 @@ header {
     display: inline-flex;
     animation: scroll-right 40s linear infinite;
     overflow-x: hidden;
-    padding-top: 30px;
+    padding-top: 15px;
 }
 
 .scroll-track p {
@@ -421,7 +424,9 @@ header {
 /* 画面右側フレームワーク（動画スライド表示） */
 .monitor-frame {
     width: 100%;
-    height: auto;
+    height: 600px;
+    padding: 0;
+
     right: -80px;
     aspect-ratio: 16 / 9;
     background: #000;
@@ -1295,6 +1300,7 @@ body {
 
     .main-visual {
         flex-direction: column-reverse;
+        margin-top: 0;
         padding: 0;
     }
 
@@ -1313,12 +1319,28 @@ body {
     }
 
     .monitor-frame {
+        width: 100vw;
+        height: 50vw;
+        padding: 0;
         border-radius: 0;
-        width: 90vw;
-        height: auto;
-        max-width: 100%;
         margin: 0 auto;
         right: 0;
+        position: relative;
+        display: inline-block;
+    }
+
+    .monitor-frame::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        box-shadow: inset 0 0 15px 15px white;
+        pointer-events: none;
+        /* 操作をブロックしないように */
+        z-index: 2;
+        /* 画像より前に出るように必要なら指定 */
     }
 
     .main-visual .hero-left p {
@@ -1341,6 +1363,7 @@ body {
 
     .hero-left {
         margin: 0 auto;
+        padding: 0 4%;
     }
 
     .hero-left img {
@@ -1357,7 +1380,12 @@ body {
     }
 
     .scroll-track {
-        margin-top: 80px;
+        margin-top: 50px;
+    }
+
+    .slide {
+        max-width: 100%;
+        display: block;
     }
 
     /* 作業部屋紹介 */
@@ -1407,11 +1435,12 @@ body {
     }
 
 
-    /* ナビケーション */
 
+    /* ナビゲーション */
     .openbtn {
         display: block;
     }
+
 
     .sidebar {
         position: fixed;
@@ -1426,9 +1455,36 @@ body {
         /*動き*/
         transition: all 0.6s;
     }
-
     .sidebar.panelactive {
         top: 0;
+    header {
+        padding: 0;
+        top: 0%;
+        right: -120%;
+        width: 100%;
+        height: 100vh;
+        background-color: #eff9c3e6;
+        /* 動き */
+        pointer-events: auto;
+        transform: translateY((-50%));
+        opacity: 0;
+        transition: transform 1.3s ease, opacity 1.3s ease;
+    }
+
+    header.panelactive {
+        opacity: 1;
+        width: 20rem;
+        height: 30rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        pointer-events: auto;
+        text-align: center;
+        z-index: 200;
+        transform: translateY(0);
+        border-radius: 10%;
+        padding-top: 1rem;
+        padding-inline: 1rem;
     }
 
     .logo-area {
@@ -1444,6 +1500,14 @@ body {
         display: block;
     }
 
+    .nav-link .link-btn,
+    .sidebar .cta-btn {
+        font-size: 1.4rem;
+    }
+
+    .sidebar .cta-btn {
+        width: 12rem;
+    }
 
     main {
         margin-inline: auto;
@@ -1508,9 +1572,9 @@ body {
     }
 
     /* step */
-    #step .sec-wrapper {
+    /* #step .sec-wrapper {
         padding-inline: 0;
-    }
+    } */
 
     .step-item {
         width: 90%;
