@@ -13,12 +13,12 @@ window.addEventListener("load", () => {
 ===================================================*/
 $(".openbtn").click(function () {//ボタンがクリックされたら
   $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
-  $(".sidebar").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+  $("header").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
 });
 
 $(".sidebar a").click(function () {//ナビゲーションのリンクがクリックされたら
   $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
-  $(".sidebar").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+  $("header").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
 });
 
 
