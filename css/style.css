@@ -1574,9 +1574,9 @@ body {
     }
 
     /* step */
-    #step .sec-wrapper {
+    /* #step .sec-wrapper {
         padding-inline: 0;
-    }
+    } */
 
     .step-item {
         width: 90%;
