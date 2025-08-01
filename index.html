@@ -14,52 +14,51 @@
 </head>
 
 <body>
-  <!-- ローディングアニメーション　担当：かおり -->
-  <div class="loader-container">
-    <img class="loader" src="img/greenHamster_car_right.gif" alt="車移動">
-    <p>LOADING</p>
-  </div>
-
-  <!-- ハンバーガーメニュー -->
-  <div class="openbtn">
-    <span></span>
-    <span>Menu</span>
-    <span></span>
-  </div>
-
-  <!-- メインビジュアル　担当：はづき -->
-  <div class="main-visual">
-    <img src="./img/background-design-1.png" alt="corner image" class="corner-img">
-
-    <div class="hero-left">
-      <div class="hero-inner">
-        <a href="#"><img src="./img/image_1-removebg-preview.png" alt=""></a>
-        <p>なんとなく気になる、<br>それがあなたの <span class="highlight">"はじめどき"</span></p>
+  <div id="first-view">
+    <!-- ローディングアニメーション　担当：かおり -->
+    <div class="loading-wrapper">
+      <div class="loader-container">
+        <img class="loader" src="img/greenHamster_car_right.gif" alt="車移動">
+        <p>LOADING</p>
       </div>
-      <div class="cta-btn">
-        <a href="#" class="join-btn">参加する</a>
-      </div>
-
     </div>
 
-    <div class="hero-right">
-      <div class="monitor-frame">
-        <div class="slideshow">
-          <img class="slide active" src="./img/mainslideshow-pic1.png" alt="">
-          <img class="slide" src="./img/mainslideshow-pic2.png" alt="">
-          <img class="slide" src="./img/mainslideshow-pic3.png" alt="">
-          <img class="slide" src="./img/mainslideshow-pic4.png" alt="">
+    <!-- メインビジュアル　担当：はづき -->
+    <div class="mv-wrapper">
+      <div class="main-visual">
+        <img src="./img/background-design-1.png" alt="corner image" class="corner-img">
+
+        <div class="hero-left">
+          <div class="hero-inner">
+            <a href="#"><img src="./img/image_1-removebg-preview.png" alt=""></a>
+            <p>なんとなく気になる、<br>それがあなたの <span class="highlight">"はじめどき"</span></p>
+          </div>
+          <div class="join-btn">
+            <a href="#" class="cta-btn">参加する</a>
+          </div>
+
         </div>
-      </div>
-    </div>
 
-    <script src="js/slider.js"></script>
+        <div class="hero-right">
+          <div class="monitor-frame">
+            <div class="slideshow">
+              <img class="slide active" src="./img/mainslideshow-pic1.png" alt="">
+              <img class="slide" src="./img/mainslideshow-pic2.png" alt="">
+              <img class="slide" src="./img/mainslideshow-pic3.png" alt="">
+              <img class="slide" src="./img/mainslideshow-pic4.png" alt="">
+            </div>
+          </div>
+        </div>
 
-    <div class="scroll-text bottom-scroll">
-      <div class="scroll-track reverse">
-        <p># WELCOME TO METALEAF # JOIN US # WELCOME TO METALEAF # JOIN US</p>
-        <p># WELCOME TO METALEAF # JOIN US # WELCOME TO METALEAF # JOIN US</p>
-        <p># WELCOME TO METALEAF # JOIN US # WELCOME TO METALEAF # JOIN US</p>
+        <script src="js/slider.js"></script>
+
+        <div class="scroll-text bottom-scroll">
+          <div class="scroll-track reverse">
+            <p># WELCOME TO METALEAF # JOIN US # WELCOME TO METALEAF # JOIN US</p>
+            <p># WELCOME TO METALEAF # JOIN US # WELCOME TO METALEAF # JOIN US</p>
+            <p># WELCOME TO METALEAF # JOIN US # WELCOME TO METALEAF # JOIN US</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -92,6 +91,14 @@
       </ul>
       <a class="cta-btn" href="#" class="join-btn">参加する</a>
     </nav>
+
+    <!-- ハンバーガーメニュー -->
+    <div class="openbtn">
+      <span></span>
+      <span>Menu</span>
+      <span></span>
+    </div>
+
   </header>
 
   <main>

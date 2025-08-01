@@ -44,15 +44,21 @@ main {
 ローディングアニメーション
 担当：かおり 
 */
-
-.loader-container {
+.loading-wrapper {
     position: fixed;
     inset: 0;
     z-index: 999;
     background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.loader-container.hidden {
+.loader-container {
+    text-align: center;
+}
+
+.loading-wrapper.hidden {
     opacity: 0;
     visibility: hidden;
 }
@@ -61,8 +67,9 @@ main {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-80%, -50%);
-    width: 80rem;
+    transform: translate(-50%, -50%);
+    width: min(60vw, 30rem);
+    max-width: 100%;
 }
 
 .loader-container p {
@@ -147,7 +154,7 @@ main {
 header {
     width: 25rem;
     height: 100vh;
-    padding: 10rem 8rem 0 2rem;
+    padding: 10rem 2em 0 2rem;
     position: fixed;
     top: 0;
     overflow-y: auto;
@@ -160,6 +167,7 @@ header {
 .nav-link {
     margin-bottom: 4rem;
     margin-inline: auto;
+    padding-right: 1rem;
 }
 
 .link-btn {
@@ -269,13 +277,25 @@ header {
 
 /* はづき担当 */
 /* メインビジュアル */
+#first-view {
+    min-height: 100vh;
+}
+.mv-wrapper {
+    width: 100%;
+    height: auto;
+    overflow-x: visible;
+    margin-bottom: 5rem;
+}
+
 .main-visual {
     display: flex;
-    height: 100vh;
-    align-items: center;
+    height: auto;
+    min-height: auto;
+    width: 100%;
+    /* align-items: center;
     justify-content: center;
-    padding: 4% 0 0 4%;
-    z-index: 20;
+    padding: 4% 0 0 0;
+    z-index: 20; */
     position: relative;
 }
 
@@ -304,6 +324,10 @@ header {
     height: auto;
     z-index: -3;
     /* 必要に応じて前面に */
+}
+
+.hero-left {
+    padding-left: 3rem;
 }
 
 .main-visual .hero-left p {
@@ -356,6 +380,7 @@ header {
 .scroll-text {
     position: absolute;
     width: 100%;
+    padding-top: 2rem;
     overflow: hidden;
     white-space: nowrap;
     font-family: 'DotGothic16';
@@ -397,7 +422,7 @@ header {
 /* 画面右側フレームワーク（動画スライド表示） */
 .monitor-frame {
     width: 100%;
-    height: 700px;
+    height: auto;
     right: -80px;
     aspect-ratio: 16 / 9;
     background: #000;
@@ -1243,10 +1268,10 @@ body {
     margin: 0;
 }
 
-body {
+/* body {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .hero {
     flex: 1;
@@ -1260,6 +1285,15 @@ body {
         margin-left: 0;
     }
 
+    /*ローディング*/
+    .loading-wrapper {
+        overflow: hidden;
+    }
+
+    .loader {
+        max-height: 100vh;
+    }
+
     .main-visual {
         flex-direction: column-reverse;
         padding: 0;
@@ -1268,26 +1302,55 @@ body {
     .hero-inner {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+    }
+
+    .hero-right {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
     }
 
     .monitor-frame {
         border-radius: 0;
+        width: 90vw;
+        height: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        right: 0;
     }
 
     .main-visual .hero-left p {
         border-bottom: none;
         text-align: center;
         align-items: center;
-        margin-top: 130px;
+        margin: 0;
+        padding: 0;
     }
 
     .cta-btn {
-        align-items: center;
+        text-align: center;
+        width: 20rem;
+    }
+
+    .join-btn {
+        width: 20rem;
+        margin: 0 auto;
+    }
+
+    .hero-left {
         margin: 0 auto;
     }
 
     .hero-left img {
         border-top: none;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
     }
 
     .main-visual::after {
