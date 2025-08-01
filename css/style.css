@@ -1403,6 +1403,10 @@ body {
 
     /*  かおり担当 メタリーフとは*/
 
+    .horizontal_scroll {
+        height: 291rem;
+    }
+
     .horizontal_scroll .scroll-section>* {
         display: block;
         overflow-x: hidden;
@@ -1440,6 +1444,9 @@ body {
     .onlineBg {
         right: 2rem;
     }
+
+
+
 
     /* 参加者の声 */
     .voice-card {
