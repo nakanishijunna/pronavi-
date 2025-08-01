@@ -47,7 +47,7 @@ main {
 .loading-wrapper {
     position: fixed;
     inset: 0;
-    z-index: 999;
+    z-index: 1000;
     background-color: #000;
     display: flex;
     justify-content: center;
@@ -282,10 +282,18 @@ header {
 }
 
 .mv-wrapper {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 1.2s ease, transform 1.2s ease;
     width: 100%;
     height: auto;
     overflow-x: visible;
     margin-bottom: 5rem;
+}
+
+.mv-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .main-visual {
@@ -293,7 +301,6 @@ header {
     height: auto;
     min-height: auto;
     width: 100%;
-    margin-top: 60px;
     /* align-items: center;
     justify-content: center;
     padding: 4% 0 0 0;
@@ -477,7 +484,7 @@ header.show {
 .voice-card {
     padding-top: 30%;
     padding-bottom: 10%;
-    background-image: url(../img/コルクボード.jpg);
+    background-image: url(../img/コルクボード.png);
     background-size: cover;
     background-position: top center;
 }
@@ -669,6 +676,7 @@ header.show {
     height: var(--sticky-container-height);
     min-height: 100vh;
     box-sizing: border-box;
+    margin-bottom: 20rem;
 }
 
 .horizontal_scroll .sticky {
@@ -1042,9 +1050,9 @@ h3 span {
 
 /* はづき担当 */
 /* よくある質問 */
-#faq {
+/* #faq {
     background-color: #f9f9f9;
-}
+} */
 
 /* 質問ブロック */
 .faq-item {
@@ -1139,9 +1147,12 @@ h3 span {
 .grad-container {
     height: 200vh;
     position: relative;
+    margin-top: 8rem;
 }
 
 .slider-wrapper {
+    display: flex;
+    align-items: center;
     overflow: hidden;
     width: 100%;
     height: 700px;
@@ -1153,7 +1164,7 @@ h3 span {
 .slider-track {
     display: flex;
     width: max-content;
-    animation: scroll-left 40s linear infinite;
+    animation: scroll-left 30s linear infinite;
 }
 
 .room-slide {
@@ -1215,7 +1226,7 @@ h3 span {
 }
 
 .typingText {
-    margin-top: -25rem;
+    margin-top: -5rem;
     margin-bottom: 15rem;
     color: #fff;
     font-size: 4rem;
@@ -1392,39 +1403,48 @@ body {
 
 
     .slider-wrapper {
-        height: auto;
-        padding: 40px 0;
+        height: 47%;
+        padding: 30px 0;
     }
 
     .slider-track {
-        display: flex;
+        animation: scroll-left 40s linear infinite;
+        /* display: flex;
         flex-direction: column;
-        animation: none;
+        animation: none; */
         /* スクロールアニメーションを無効化 */
-        width: 100%;
+        /* width: 100%; */
         /* max-contentではなく幅100% */
-        align-items: center;
+        /* align-items: center; */
         /* 中央寄せ（任意） */
-        gap: 2rem;
+        /* gap: 2rem; */
     }
 
     .room-slide {
-        width: 90%;
+        width: 60vw;
         /* 画面幅に合わせる */
-        margin: 0;
+        margin: 0 0.8rem;
         /* 横マージンなし */
-        transform: none !important;
+        /* transform: none !important; */
         /* .up/.down の縦ズレを無効化 */
     }
 
-    .room-slide:nth-child(n+7) {
-        display: none;
+    .room-slide img {
+        /* width: 100%; */
+        margin-bottom: 3rem;
+        /* aspect-ratio: 4 / 3; */
+        object-fit: cover;
     }
 
-    .room-slide img {
-        width: 100%;
-        height: auto;
+    .room-slide.up {
+        transform: translateY(-2rem);
     }
+
+    .room-slide.down {
+        transform: translateY(2rem);
+    }
+
+
 
 
     /* ローディングアニメーション */
@@ -1526,6 +1546,8 @@ body {
         max-width: 48rem;
         margin-inline: auto;
         margin-bottom: 3rem;
+        padding-inline: 2rem;
+        padding-top: 3rem;
     }
 
     h3 {
@@ -1558,9 +1580,17 @@ body {
     }
 
     /* step */
-    /* #step .sec-wrapper {
+    #step .sec-wrapper {
         padding-inline: 0;
-    } */
+    }
+
+    #step h2 {
+        margin-inline: 2rem;
+    }
+
+    .step-items {
+        padding: 0;
+    }
 
     .step-item {
         width: 90%;
@@ -1591,6 +1621,33 @@ body {
 
 @media (max-width: 390px) {
 
+    /*共通*/
+    h3 {
+        font-size: 1.8rem;
+        padding-inline: 1rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+
+
+    .main-visual .hero-left p {
+        font-size: 1.4rem;
+    }
+
+    .hero-inner .highlight {
+        width: 60%;
+        font-size: 1.8rem;
+        display: inline-block;
+    }
+
+
+    /*metaleafとは*/
+    .scroll-list li {
+        padding: 2rem;
+    }
+
     /* voice */
     .voice-text {
         font-size: 1.2rem;
@@ -1606,6 +1663,11 @@ body {
     }
 
     /* footer */
+    .slider-wrapper {
+        height: 26%;
+        padding: 30px 0;
+    }
+
     .typingText {
         font-size: 1.8rem;
     }

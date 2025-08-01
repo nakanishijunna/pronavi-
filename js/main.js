@@ -2,25 +2,32 @@
 ローディングアニメーション　担当：かおり
 ===================================================*/
 const loaderContainer = document.querySelector(".loading-wrapper");
+const mainVisual = document.querySelector(".mv-wrapper");
 
 window.addEventListener("load", () => {
-  loaderContainer.classList.add("hidden");
+  // ローディングアニメーション表示時間を設定
+  setTimeout(() => {
+    loaderContainer.classList.add("hidden");
+    setTimeout(() => {
+      mainVisual.classList.add("visible");
+    }, 1000) //メインビジュアルフェードイン時間
+  }, 3000) //ローディング表示時間
 });
-
 
 /*=================================================
 ハンバーガーメニュー
 ===================================================*/
-$(".openbtn").click(function () {//ボタンがクリックされたら
-  $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
-  $("header").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+$(".openbtn").click(function () {
+  //ボタンがクリックされたら
+  $(this).toggleClass("active"); //ボタン自身に activeクラスを付与し
+  $("header").toggleClass("panelactive"); //ナビゲーションにpanelactiveクラスを付与
 });
 
-$(".sidebar a").click(function () {//ナビゲーションのリンクがクリックされたら
-  $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
-  $("header").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+$(".sidebar a").click(function () {
+  //ナビゲーションのリンクがクリックされたら
+  $(".openbtn").removeClass("active"); //ボタンの activeクラスを除去し
+  $("header").removeClass("panelactive"); //ナビゲーションのpanelactiveクラスも除去
 });
-
 
 /*=================================================
 メインビジュアルの画像スライドショー表示
@@ -32,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(() => {
     // 全スライドを一旦非表示に
-    slides.forEach(slide => slide.classList.remove("active"));
+    slides.forEach((slide) => slide.classList.remove("active"));
 
     // 現在のスライドを表示
     slides[current].classList.add("active");
@@ -41,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     current = (current + 1) % total;
   }, 3000);
 });
-
 
 /*=================================================
 メインビジュアルを過ぎた後、navを表示
@@ -175,15 +181,30 @@ document.addEventListener("DOMContentLoaded", () => {
 フェードイン
 ===================================================*/
 window.addEventListener("scroll", () => {
-  const elements = document.querySelectorAll(".fadeIn");
   const triggerBottom = window.innerHeight * 0.85;
+  const isSP = window.innerWidth <= 768; // 768px以下をSPと定義
+  // PC用
+  const pcElements = document.querySelectorAll(".fadeIn");
+  // SP用
+  const spElements = document.querySelectorAll(".fadeIn-sp");
 
-  elements.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < triggerBottom) {
-      el.classList.add("is-active");
-    }
-  });
+  // 共通処理
+  const handleFadeIn = (elements) => {
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < triggerBottom) {
+        el.classList.add("is-active");
+      }
+    });
+  };
+
+  // PCは.fadeInのみ、SPで対象は両方
+  if (isSP) {
+    handleFadeIn(pcElements);
+    handleFadeIn(spElements);
+  } else {
+    handleFadeIn(pcElements);
+  }
 });
 
 /*=================================================
@@ -225,28 +246,29 @@ function typingWrite() {
     // 一文字ずつ表示する関数をランダムな時間待ってから実行する
     setTimeout(typingWrite, randomInterval);
   }
-};
+}
 
 // Intersection Observerの設定
-const typingObserver = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      typingWrite(); //表示されたら開始
-      obs.unobserve(entry.target); //　一度だけの場合はなし
-    }
-  });
-}, {
-  threshold: 0.5 //要素が50％見えたら動かす
-});
+const typingObserver = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        typingWrite(); //表示されたら開始
+        obs.unobserve(entry.target); //　一度だけの場合はなし
+      }
+    });
+  },
+  {
+    threshold: 0.5, //要素が50％見えたら動かす
+  }
+);
 
 window.addEventListener("load", () => {
   loaderContainer.classList.add("concealed");
   typingObserver.observe(typingText); // typingTextが表示されるのを監視開始
 });
 
-
-
-const slider = document.getElementById('slider');
+const slider = document.getElementById("slider");
 slider.innerHTML += slider.innerHTML; // DOM複製
 let x = 0;
 function scrollLoop() {
