@@ -1554,6 +1554,14 @@ body {
         font-size: 2rem;
     }
 
+    .moon {
+        right: 2rem;
+    }
+
+    .onlineBg {
+        right: 2rem;
+    }
+
 
     /* 参加者の声 */
     .voice-card {
